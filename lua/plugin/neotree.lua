@@ -1,6 +1,6 @@
 return {
     "nvim-neo-tree/neo-tree.nvim",
-    dependencies = {{ "nvim-lua/plenary.nvim", lazy = true },"nvim-tree/nvim-web-devicons","MunifTanjim/nui.nvim"},
+    dependencies = {{ "nvim-lua/plenary.nvim", lazy = true },"echasnovski/mini.icons","MunifTanjim/nui.nvim"},
     cmd = "Neotree",
     deactivate = function()
         vim.cmd([[Neotree close]])

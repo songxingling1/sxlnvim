@@ -14,8 +14,8 @@ vim.keymap.set('n','<leader>fg',":Neotree position=right git_status toggle<CR>",
 vim.keymap.set('n','<leader>fb',":Neotree position=bottom buffers toggle<CR>",{noremap = true,silent = true,desc = "Open/Close Neo-Tree Buffers"})
 
 -- Split window
-vim.keymap.set('n','<leader>s','<C-w>s',{ desc = "Split window" })
-vim.keymap.set('n','<leader>v','<C-w>v',{ desc = "Vertical split window" })
+vim.keymap.set('n','<leader>-','<C-w>s',{ desc = "Split window" })
+vim.keymap.set('n','<leader>|','<C-w>v',{ desc = "Vertical split window" })
 vim.keymap.set('n','<leader>h','<C-w>h',{ desc = "Left window" })
 vim.keymap.set('n','<leader>j','<C-w>j',{ desc = "Bottom window" })
 vim.keymap.set('n','<leader>k','<C-w>k',{ desc = "Top window" })

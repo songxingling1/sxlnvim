@@ -11,10 +11,10 @@ return {
                 direction = nil,
                 highlights = nil,
                 auto_scroll = nil,
-                close_on_exit = false,
+                close_on_exit = true,
                 quit_on_exit = "always",
                 open_on_start = true,
-                hidden = false,
+                hidden = true,
                 on_create = nil,
             },
         },
@@ -108,7 +108,7 @@ return {
                         request = "launch",
                         name = "Launch file",
                         program = function()
-                            return vim.fn.expand("%:p:h") .. '/out/' .. vim.fn.expand("%:t:r")
+                            return '/tmp/' .. vim.fn.expand("%:t:r")
                         end,
                         cwd = "${workspaceFolder}",
                         stopAtEntry = true,

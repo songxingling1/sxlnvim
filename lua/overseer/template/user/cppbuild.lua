@@ -6,11 +6,9 @@ return {
         return {
             cmd = { "g++" },
             args = { file, "-std=c++14", "-Wall", "-lm", "-g", "-o", outfile },
-            components = { { "on_output_quickfix", open = false }, "default" },
         }
     end,
     condition = {
         filetype = { "cpp" },
-        dir = "/home/xinglinsong/code/"
     },
 }

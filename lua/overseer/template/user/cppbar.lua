@@ -12,7 +12,6 @@ return {
                     {
                         cmd = { "g++" },
                         args = { file, "-std=c++14", "-Wall", "-lm", "-g", "-o", outfile },
-                        components = { { "on_output_quickfix", open = false }, "default" },
                     }
                 }
             }, "default" }

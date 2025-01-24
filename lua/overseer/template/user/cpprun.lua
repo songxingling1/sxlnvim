@@ -9,6 +9,5 @@ return {
     end,
     condition = {
         filetype = { "cpp" },
-        dir = "/home/xinglinsong/code/"
     },
 }

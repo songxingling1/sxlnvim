@@ -33,6 +33,7 @@ require("lazy").setup({
     { import = "plugin.grugfar" },
     { import = "plugin.yazi" },
     { import = "plugin.neogit" },
+    { import = "plugin.marklive" },
     {
         "echasnovski/mini.icons",
         lazy = true,

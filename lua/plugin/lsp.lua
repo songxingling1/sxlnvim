@@ -17,10 +17,13 @@ return {
         config = function () 
             local configs = require("nvim-treesitter.configs")
             configs.setup({
-                ensure_installed = { "cpp" },
+                ensure_installed = { "cpp","markdown" },
                 sync_install = true,
                 highlight = { enable = true },
                 indent = { enable = true },  
+                highlight = {
+                    enable = true
+                }
             })
         end,
         lazy = true,

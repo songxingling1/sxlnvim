@@ -3,8 +3,12 @@ return {
     builder = function()
         local outfile = '/tmp/' .. vim.fn.expand("%:t:r")
         return {
-            cmd = { 'consolepauser' },
-            args = { outfile }
+            cmd = { outfile },
+            strategy = {
+                "toggleterm",
+                hidden = false,
+                quit_on_exit = "never"
+            },
         }
     end,
     condition = {

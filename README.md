@@ -51,4 +51,4 @@
 ...
 
 # Credit
-- @Baosize-bot
+- @[BaoSiZe-bot](https://github.com/BaoSiZe-bot)

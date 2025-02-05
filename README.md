@@ -1,3 +1,9 @@
+# SXLNvim
+SXLNvim is a config for Neovim. Many thanks to the plug-in providers. :blush:
+
+# Todo
+- [ ] xeluxee/competitest.nvim
+
 # Extensions List
 - [blink.cmp](https://github.com/Saghen/blink.cmp)
 - [diffview.nvim](https://github.com/sindrets/diffview.nvim)
@@ -52,3 +58,6 @@
 
 # Credit
 - @[BaoSiZe-bot](https://github.com/BaoSiZe-bot)
+
+# License
+MIT License

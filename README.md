@@ -1,9 +1,12 @@
 # SXLNvim
-SXLNvim is a config for Neovim. Many thanks to the plug-in providers. :blush:
+SXLNvim, a neovim configuration tailored for Chinese OIers. 
+
+Many thanks to the plug-in providers. :blush:
 
 # Todo
 - [x] xeluxee/competitest.nvim
 - [ ] Naive GDB DAP (No cpptools)
+- [ ] Neo-Tree Auto Close
       
 # Extensions List
 - [blink.cmp](https://github.com/Saghen/blink.cmp)
@@ -47,6 +50,7 @@ SXLNvim is a config for Neovim. Many thanks to the plug-in providers. :blush:
     - scroll
     - statuscolumn
     - words
+    - bufdelete
 - [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
 - [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 - [trouble.nvim](https://github.com/folke/trouble.nvim)

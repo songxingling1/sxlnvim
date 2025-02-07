@@ -100,6 +100,9 @@ return {
                 type = "executable",
                 command = "OpenDebugAD7",
                 id = 'cppdbg',
+                options = {
+                    detached = false
+                }
             }
             for _, lang in ipairs({ "c", "cpp" }) do
                 dap.configurations[lang] = {
@@ -108,6 +111,9 @@ return {
                         request = "launch",
                         name = "Launch file",
                         program = function()
+                            if vim.loop.os_uname().sysname == 'Windows_NT' then
+                                return vim.loop.os_getenv('TEMP') .. '\\' .. vim.fn.expand("%:t:r") .. '.exe'
+                            end
                             return '/tmp/' .. vim.fn.expand("%:t:r")
                         end,
                         cwd = "${workspaceFolder}",

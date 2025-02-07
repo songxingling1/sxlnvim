@@ -1,8 +1,5 @@
 return {
     "rebelot/heirline.nvim",
-    -- dependencies = {
-    --     {"SmiteshP/nvim-navic", dependencies = {"neovim/nvim-lspconfig"}}
-    -- , "folke/trouble.nvim"},
     lazy = false,
     config = function()
         local utils = require('heirline.utils')

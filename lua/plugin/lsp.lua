@@ -127,6 +127,11 @@ return {
     {
         "folke/trouble.nvim",
         lazy = true,
-        event = "User VeryLazyFile"
+        event = "User VeryLazyFile",
+        cmd = "Trouble",
+        opts = {
+            warn_no_results = false,
+            open_no_results = true,
+        }
     }
 }

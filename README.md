@@ -2,8 +2,9 @@
 SXLNvim is a config for Neovim. Many thanks to the plug-in providers. :blush:
 
 # Todo
-- [ ] xeluxee/competitest.nvim
-
+- [x] xeluxee/competitest.nvim
+- [ ] Naive GDB DAP (No cpptools)
+      
 # Extensions List
 - [blink.cmp](https://github.com/Saghen/blink.cmp)
 - [diffview.nvim](https://github.com/sindrets/diffview.nvim)

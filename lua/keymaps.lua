@@ -1,5 +1,6 @@
 local opt = {noremap = true,silent = true}
 vim.g.mapleader = " "
+vim.g.maplocalleader = ','
 vim.keymap.set('i','jk','<ESC>',{desc = "Exit insert mode"})
 vim.keymap.set('n','<leader>w',':w<CR>',{desc = "Save"})
 vim.keymap.set('n','<leader>qq',':q!<CR>',{silent = true,desc = "Quit current window"})
@@ -42,7 +43,7 @@ function DeleteCurrentBuffer(cbn)
   end
   vim.cmd("bd! " .. cbn)
 end
-vim.keymap.set('n','<C-b>',function()DeleteCurrentBuffer(vim.api.nvim_get_current_buf())end,opt)
+vim.keymap.set('n','<C-b>',function()Snacks.bufdelete() end,opt)
 
 -- Terminal
 vim.keymap.set('n','<leader>t',function()require('snacks.terminal').toggle()end,{ noremap = true,silent = true,desc = "Open Snacks Terminal" })

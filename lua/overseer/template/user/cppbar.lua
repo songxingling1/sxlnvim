@@ -3,6 +3,9 @@ return {
     builder = function()
         local file = vim.fn.expand("%:p")
         local outfile = '/tmp/' .. vim.fn.expand("%:t:r")
+        if vim.loop.os_uname().sysname == 'Windows_NT' then
+            outfile = vim.loop.os_getenv('TEMP') .. '\\' .. vim.fn.expand("%:t:r") .. '.exe'
+        end
         return {
             cmd = { outfile },
             strategy = {

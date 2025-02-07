@@ -20,7 +20,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     { import = "plugin.edgy" },
     { import = "plugin.neotree" },
-    { import = "plugin.tokyonight" },
+    { import = "plugin.theme" },
     { import = "plugin.heirline" },
     { import = "plugin.lsp" },
     { import = "plugin.noice" },
@@ -34,6 +34,7 @@ require("lazy").setup({
     { import = "plugin.yazi" },
     { import = "plugin.neogit" },
     { import = "plugin.marklive" },
+    { import = "plugin.competitest" },
     {
         "echasnovski/mini.icons",
         lazy = true,

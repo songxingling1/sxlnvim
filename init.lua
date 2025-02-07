@@ -24,7 +24,6 @@ vim.api.nvim_create_autocmd("User", {
     end,
 })
 require('lazy-init') -- lazy.nvim
-require('tokyonight').setup({})
-vim.cmd[[colorscheme tokyonight-storm]] -- 主题
+vim.cmd[[colorscheme catppuccin-mocha]] -- 主题
 
 vim.ui.oldInput = vim.ui.input

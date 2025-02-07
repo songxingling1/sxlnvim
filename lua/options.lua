@@ -35,3 +35,10 @@ vim.o.laststatus = 3
 vim.o.splitkeep = "screen"
 
 vim.g.suda_smart_edit = 1
+
+if vim.loop.os_uname().sysname == 'Windows_NT' then
+    vim.o.shell = 'pwsh.exe'
+    vim.o.shellcmdflag = '-nologo -c'
+    vim.o.shellxquote = ''
+    vim.o.shellquote = '"'
+end

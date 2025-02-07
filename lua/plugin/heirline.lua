@@ -159,7 +159,7 @@ return {
                 end
                 return filename
             end,
-            hl = { fg = require('heirline.utils').get_highlight("Directory").fg },
+            hl = { fg = utils.get_highlight("Directory").fg },
         }
 
         local FileFlags = {
@@ -194,9 +194,9 @@ return {
         }
 
         -- let's add the children to our FileNameBlock component
-        FileNameBlock = require('heirline.utils').insert(FileNameBlock,
+        FileNameBlock = utils.insert(FileNameBlock,
             FileIcon,
-            require('heirline.utils').insert(FileNameModifer, FileName), -- a new table where FileName is a child of FileNameModifier
+            utils.insert(FileNameModifer, FileName), -- a new table where FileName is a child of FileNameModifier
             FileFlags,
             { provider = '%<'} -- this means that the statusline is cut here when there's not enough space
         )
@@ -204,7 +204,7 @@ return {
             provider = function()
                 return string.upper(vim.bo.filetype)
             end,
-            hl = { fg = require('heirline.utils').get_highlight("Type").fg, bold = true },
+            hl = { fg = utils.get_highlight("Type").fg, bold = true },
         }
         local FileEncoding = {
             provider = function()
@@ -476,7 +476,7 @@ return {
             end,
             provider = " ",
             hl = { fg = "orange", bold = true },
-            require('heirline.utils').surround({ "[", "]" }, nil, {
+            utils.surround({ "[", "]" }, nil, {
                 provider = function()
                     return vim.fn.reg_recording()
                 end,
@@ -497,7 +497,7 @@ return {
         local Align = { provider = "%=" }
         local Space = { provider = " " }
 
-        ViMode = require('heirline.utils').surround({ "", "" }, "bright_bg", { ViMode, Snippets })
+        ViMode = utils.surround({ "", "" }, "bright_bg", { ViMode, Snippets })
 
         local DefaultStatusline = {
             ViMode, Space, FileNameBlock, Space, 
@@ -562,7 +562,7 @@ return {
                 condition = function()
                     return conditions.buffer_matches({ buftype = { "terminal" } })
                 end,
-                require('heirline.utils').surround({ "", "" }, "dark_red", {
+                utils.surround({ "", "" }, "dark_red", {
                     FileType,
                     Space,
                     TerminalName,
@@ -572,16 +572,10 @@ return {
                 condition = function()
                     return not conditions.is_active()
                 end,
-                require('heirline.utils').surround({ "", "" }, "bright_bg", { hl = { fg = "gray", force = true }, FileNameBlock }),
+                utils.surround({ "", "" }, "bright_bg", { hl = { fg = "gray", force = true }, FileNameBlock }),
             },
             -- A winbar for regular files
-            require('heirline.utils').surround({ "", "" }, "bright_bg", FileNameBlock),
-        }
-        local TablineBufnr = {
-            provider = function(self)
-                return tostring(self.bufnr) .. ". "
-            end,
-            hl = "Comment",
+            utils.surround({ "", "" }, "bright_bg", FileNameBlock),
         }
 
         -- we redefine the filename component, as we probably only want the tail and not the relative path
@@ -631,7 +625,7 @@ return {
             end,
             hl = function(self)
                 if self.is_active then
-                    return "TabLineSel"
+                    return 'Pmenu'
                 -- why not?
                 -- elseif not vim.api.nvim_buf_is_loaded(self.bufnr) then
                 --     return { fg = "gray" }
@@ -654,7 +648,6 @@ return {
                 end,
                 name = "heirline_tabline_buffer_callback",
             },
-            TablineBufnr,
             FileIcon, -- turns out the version defined in #crash-course-part-ii-filename-and-friends can be reutilized as is here!
             TablineFileName,
             TablineFileFlags,
@@ -667,7 +660,7 @@ return {
             end,
             { provider = " " },
             {
-                provider = "",
+                provider = " ",
                 hl = { fg = "gray" },
                 on_click = {
                     callback = function(_, minwid)
@@ -685,16 +678,16 @@ return {
         }
 
         -- The final touch!
-        local TablineBufferBlock = require('heirline.utils').surround({ "", "" }, function(self)
+        local TablineBufferBlock = utils.surround({ "", "" }, function(self)
             if self.is_active then
-                return require('heirline.utils').get_highlight("TabLineSel").bg
+                return utils.get_highlight("Pmenu").bg
             else
-                return require('heirline.utils').get_highlight("TabLine").bg
+                return utils.get_highlight("TabLine").bg
             end
         end, { TablineFileNameBlock, TablineCloseButton })
 
         -- and here we go
-        local BufferLine = require('heirline.utils').make_buflist(
+        local BufferLine = utils.make_buflist(
             TablineBufferBlock,
             { provider = "", hl = { fg = "gray" } }, -- left truncation, optional (defaults to "<")
             { provider = "", hl = { fg = "gray" } } -- right trunctation, also optional (defaults to ...... yep, ">")
@@ -763,7 +756,7 @@ return {
                 return #vim.api.nvim_list_tabpages() >= 2
             end,
             { provider = "%=" },
-            require('heirline.utils').make_tablist(Tabpage),
+            utils.make_tablist(Tabpage),
             TabpageClose,
         }
         local TabLineOffset = {
@@ -775,8 +768,9 @@ return {
                 if vim.bo[bufnr].filetype == "neo-tree" then
                     self.title = "Neo-Tree"
                     return true
-                -- elseif vim.bo[bufnr].filetype == "TagBar" then
-                --     ...
+                elseif vim.bo[bufnr].filetype == "grug-far" then
+                    self.title = "Grug Far"
+                    return true
                 end
             end,
 

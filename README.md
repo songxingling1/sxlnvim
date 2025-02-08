@@ -4,9 +4,9 @@ SXLNvim, a neovim configuration tailored for Chinese OIers.
 Many thanks to the plug-in providers. :blush:
 
 # Todo
-- [x] xeluxee/competitest.nvim
-- [ ] Naive GDB DAP (No cpptools)
-- [ ] Neo-Tree Auto Close
+- $\color{green}{\textsf{DONE}}$ xeluxee/competitest.nvim
+- $\color{red}{\textsf{KILL}}$ Naive GDB DAP (No cpptools)
+- $\color{orange}{\textsf{TODO}}$ Neo-Tree Auto Close
       
 # Extensions List
 - [blink.cmp](https://github.com/Saghen/blink.cmp)

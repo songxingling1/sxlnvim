@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd("User", {
         else
             _trigger()
         end
-        vim.o.laststatus = 3
+        vim.go.laststatus = 3
         vim.o.splitkeep = "screen"
         vim.ui.input = function(opts,on_confirm)
             vim.api.nvim_exec_autocmds("User",{pattern = "InputPopupPre"})

@@ -29,12 +29,12 @@ vim.o.listchars = "trail:.,tab:->"
 vim.o.signcolumn = 'yes'
 vim.o.clipboard = 'unnamedplus'
 
-vim.api.nvim_set_hl(0, 'AbaloneHeader', { fg = "#f07c82",bold = true })
-
 vim.o.laststatus = 3
 vim.o.splitkeep = "screen"
 
 vim.g.suda_smart_edit = 1
+
+vim.o.cmdheight = 0
 
 if vim.loop.os_uname().sysname == 'Windows_NT' then
     vim.o.shell = 'pwsh.exe'

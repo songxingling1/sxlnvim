@@ -18,11 +18,11 @@ Many thanks to the plug-in providers. :blush:
 - [lazy.nvim](https://github.com/folke/lazy.nvim)
 - [marklive.nvim](https://github.com/yelog/marklive.nvim)
 - [mini.nvim](https://github.com/echasnovski/mini.nvim)
-    - mini.ai
-    - mini.icons
-    - mini.move
-    - mini.pairs
-    - mini.surround
+    * mini.ai
+    * mini.icons
+    * mini.move
+    * mini.pairs
+    * mini.surround
 - [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
 - [neogit](https://github.com/NeogitOrg/neogit)
 - [noice.nvim](https://github.com/folke/noice.nvim)
@@ -41,16 +41,16 @@ Many thanks to the plug-in providers. :blush:
 - [plenary.nvim](https://github.com/nvim-lua/plenary.nvim)
 - [rainbow-delimiters](https://github.com/hiphish/rainbow-delimiters.nvim)
 - [snacks.nvim](https://github.com/folke/snacks.nvim)
-    - dashboard
-    - picker
-    - indent
-    - input
-    - notifier
-    - quickfile
-    - scroll
-    - statuscolumn
-    - words
-    - bufdelete
+    * dashboard
+    * picker
+    * indent
+    * input
+    * notifier
+    * quickfile
+    * scroll
+    * statuscolumn
+    * words
+    * bufdelete
 - [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim)
 - [tokyonight.nvim](https://github.com/folke/tokyonight.nvim)
 - [trouble.nvim](https://github.com/folke/trouble.nvim)

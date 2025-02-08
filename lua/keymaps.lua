@@ -2,11 +2,12 @@ local opt = {noremap = true,silent = true}
 vim.g.mapleader = " "
 vim.g.maplocalleader = ','
 vim.keymap.set('i','jk','<ESC>',{desc = "Exit insert mode"})
-vim.keymap.set('n','<leader>w',':w<CR>',{desc = "Save"})
+vim.keymap.set('n','<leader>w',':w<CR>',{desc = "Save",silent = true})
 vim.keymap.set('n','<leader>qq',':q!<CR>',{silent = true,desc = "Quit current window"})
 vim.keymap.set('n','<leader>qa',':qa!<CR>',{silent = true,desc = "Quit all"})
 vim.keymap.set('v','<','<gv')
 vim.keymap.set('v','>','>gv')
+vim.keymap.set('n','<leader>nh',':nohl<CR>',{silent = true,desc = "No Highlight"})
 
 -- Neo-Tree
 vim.keymap.set('n','<leader>ff',":Neotree position=left toggle<CR>",{noremap = true,silent = true,desc = "Open/Close Neo-Tree Filesystem"})

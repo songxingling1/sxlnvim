@@ -56,4 +56,10 @@ require("lazy").setup({
     },
     { "akinsho/toggleterm.nvim", lazy = true },
     { "lambdalisue/vim-suda", lazy = true, event = "BufReadPre"},
+    {
+        "lewis6991/gitsigns.nvim",
+        lazy = true,
+        event = "BufReadPre",
+        opts = {}
+    }
 })

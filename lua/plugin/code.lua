@@ -117,7 +117,7 @@ return {
                             return '/tmp/' .. vim.fn.expand("%:t:r")
                         end,
                         cwd = "${workspaceFolder}",
-                        stopAtEntry = true,
+                        stopAtEntry = false,
                         setupCommands = {  
                           {
                              text = '-enable-pretty-printing',
@@ -126,7 +126,7 @@ return {
                           },
                         },
                         preLaunchTask = "G++ build cpp file"
-                    }
+                    },
                 }
             end
         end

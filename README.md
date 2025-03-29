@@ -1,7 +1,7 @@
 # SXLNvim
 SXLNvim, a neovim configuration tailored for Chinese OIers. 
 
-Many thanks to the plug-in providers. :blush:
+Really thanks to the plug-in providers. :blush:
 
 # Todo
 - $\color{green}{\textsf{DONE}}$ xeluxee/competitest.nvim

@@ -632,12 +632,12 @@ return {
             end,
             hl = function(self)
                 if self.is_active then
-                    return {bg="#45475a",bold = true, italic = true}
+                    return {bold = true, italic = true}
                 -- why not?
                 -- elseif not vim.api.nvim_buf_is_loaded(self.bufnr) then
                 --     return { fg = "gray" }
                 else
-                    return {bg="#11111b",bold = self.is_visible, italic = true}
+                    return {bold = self.is_visible, italic = true}
                 end
             end,
         }
@@ -645,13 +645,6 @@ return {
         -- #crash-course-part-ii-filename-and-friends, but we are indexing the bufnr explicitly
         -- also, we are adding a nice icon for terminal buffers.
         local TablineFileFlags = {
-            {
-                condition = function(self)
-                    return vim.api.nvim_get_option_value("modified", { buf = self.bufnr })
-                end,
-                provider = "[+]",
-                hl = { fg = "green" },
-            },
             {
                 condition = function(self)
                     return not vim.api.nvim_get_option_value("modifiable", { buf = self.bufnr })
@@ -674,12 +667,12 @@ return {
             end,
             hl = function(self)
                 if self.is_active then
-                    return {bg="#45475a",fg="#89b4fa"}
+                    return {fg="#89b4fa"}
                 -- why not?
                 -- elseif not vim.api.nvim_buf_is_loaded(self.bufnr) then
                 --     return { fg = "gray" }
                 else
-                    return {bg="#11111b",fg="#6c7086"}
+                    return {fg="#6c7086"}
                 end
             end,
             on_click = {
@@ -703,12 +696,37 @@ return {
         }
         -- a nice "x" button to close the buffer
         local TablineCloseButton = {
-            condition = function(self)
-                return not vim.api.nvim_get_option_value("modified", { buf = self.bufnr })
-            end,
             { provider = " " },
             {
+                condition = function(self)
+                    return not vim.api.nvim_get_option_value("modified", { buf = self.bufnr })
+                end,
                 provider = "",
+                hl = function(self)
+                    if self.is_active then
+                        return { fg = "#fab387" }
+                    else
+                        return { fg = "#45475a" }
+                    end
+                end,
+                on_click = {
+                    callback = function(_, minwid)
+                        vim.schedule(function()
+                            require('snacks.bufdelete').delete(minwid)
+                            vim.cmd.redrawtabline()
+                        end)
+                    end,
+                    minwid = function(self)
+                        return self.bufnr
+                    end,
+                    name = "heirline_tabline_close_buffer_callback",
+                },
+            },
+            {
+                condition = function(self)
+                    return vim.api.nvim_get_option_value("modified", { buf = self.bufnr })
+                end,
+                provider = "",
                 hl = function(self)
                     if self.is_active then
                         return { fg = "#fab387" }
@@ -733,22 +751,30 @@ return {
         -- The final touch!
         local TablineBufferBlock = {
             {
-                provider = "",
+                provider = "▋ ",
                 hl = function(self)
-                    if self.is_active then
-                        return {fg="#45475a",bg="#181825"}
-                    else
-                        return {fg="#11111b",bg="#181825"}
-                    end
+                    return {fg="#89b4fa"}
+                end,
+                condition = function(self)
+                    return self.is_active
+                end
+            },
+            {
+                provider = "▎ ",
+                hl = function(self)
+                    return {fg="#2a2b3c"}
+                end,
+                condition = function(self)
+                    return not self.is_active
                 end
             },
             {
                 TablineFileNameBlock,
                 hl = function(self)
                     if self.is_active then
-                        return {fg="#89b4fa",bg="#45475a"}
+                        return {fg="#89b4fa"}
                     else
-                        return {fg="#6c7086",bg="#11111b"}
+                        return {fg="#6c7086"}
                     end
                 end
             },
@@ -756,21 +782,13 @@ return {
                 TablineCloseButton,
                 hl = function(self)
                     if self.is_active then
-                        return {fg="#89b4fa",bg="#45475a"}
+                        return {fg="#89b4fa"}
                     else
-                        return {fg="#6c7086",bg="#11111b"}
+                        return {fg="#6c7086"}
                     end
                 end
-            },
-            {
-                provider = "",
-                hl = function(self)
-                    if self.is_active then
-                        return {fg="#45475a",bg="#181825"}
-                    else
-                        return {fg="#11111b",bg="#181825"}
-                    end
-                end
+            },{
+                provider = "  "
             }
         }
         -- this is the default function used to retrieve buffers
@@ -804,7 +822,7 @@ return {
         -- and here we go
         local BufferLine = utils.make_buflist(
                 TablineBufferBlock,
-                { provider = "", hl = { fg = "gray" } }, -- left truncation, optional (defaults to "<")
+                { provider = " ", hl = { fg = "gray" } }, -- left truncation, optional (defaults to "<")
                 { provider = "", hl = { fg = "gray" } }, -- right trunctation, also optional (defaults to ...... yep, ">")
                 -- out buf_func simply returns the buflist_cache
                 function()

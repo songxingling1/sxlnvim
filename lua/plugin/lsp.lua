@@ -20,7 +20,7 @@ return {
                 ensure_installed = { "cpp","markdown" },
                 sync_install = true,
                 highlight = { enable = true },
-                indent = { enable = true },  
+                indent = { enable = false },
                 highlight = {
                     enable = true
                 }

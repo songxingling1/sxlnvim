@@ -2,6 +2,7 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     dependencies = {{ "nvim-lua/plenary.nvim", lazy = true },"echasnovski/mini.icons","MunifTanjim/nui.nvim"},
     cmd = "Neotree",
+    lazy = true,
     deactivate = function()
         vim.cmd([[Neotree close]])
     end,
@@ -23,8 +24,6 @@ return {
                 end
             end,
         })
-        vim.o.laststatus = 3
-        vim.o.splitkeep = "screen"
     end,
     opts = {
         sources = { "filesystem", "buffers", "git_status" },
@@ -51,12 +50,6 @@ return {
                         vim.fn.setreg("+", path, "c")
                     end,
                     desc = "Copy Path to Clipboard",
-                },
-                ["O"] = {
-                    function(state)
-                        require("lazy.util").open(state.tree:get_node().path, { system = true })
-                    end,
-                    desc = "Open with System Application",
                 },
                 ["P"] = { "toggle_preview", config = { use_float = false } },
             },

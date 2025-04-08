@@ -1,7 +1,7 @@
 return {
     "folke/noice.nvim",
     lazy = true,
-    event = {"CmdlineEnter","User InputPopupPre"},
+    event = "VeryLazy",
     opts = {
         lsp = {
             override = {

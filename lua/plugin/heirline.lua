@@ -805,6 +805,11 @@ return {
                 vim.schedule(function()
                     local buffers = get_bufs()
                     for i, v in ipairs(buffers) do
+                        if vim.api.nvim_buf_get_name(v) == '' then
+                            table.remove(buffers,i)
+                        end
+                    end
+                    for i, v in ipairs(buffers) do
                         buflist_cache[i] = v
                     end
                     for i = #buffers + 1, #buflist_cache do
@@ -873,7 +878,7 @@ return {
                 disable_winbar_cb = function(args)
                     return conditions.buffer_matches({
                         buftype = { "nofile", "prompt", "help", "quickfix" },
-                        filetype = { "^git.*", "fugitive", "Trouble", "dashboard" },
+                        filetype = { "^git.*", "fugitive", "Trouble", "snacks_dashboard" },
                     }, args.buf)
                 end,
             },

@@ -16,14 +16,7 @@ vim.api.nvim_create_autocmd("User", {
         end
         vim.go.laststatus = 3
         vim.o.splitkeep = "screen"
-        vim.ui.input = function(opts,on_confirm)
-            vim.api.nvim_exec_autocmds("User",{pattern = "InputPopupPre"})
-            vim.ui.oldInput(opts,on_confirm)
-            vim.api.nvim_exec_autocmds("User",{pattern = "InputPopup"})
-        end
     end,
 })
 require('lazy-init') -- lazy.nvim
 vim.cmd[[colorscheme catppuccin-mocha]] -- 主题
-
-vim.ui.oldInput = vim.ui.input

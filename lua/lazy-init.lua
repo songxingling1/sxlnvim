@@ -32,7 +32,6 @@ require("lazy").setup({
     { import = "plugin.mini" },
     { import = "plugin.grugfar" },
     { import = "plugin.yazi" },
-    { import = "plugin.neogit" },
     { import = "plugin.marklive" },
     { import = "plugin.competitest" },
     {

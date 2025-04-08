@@ -3,33 +3,14 @@ return {
     priority = 1000,
     lazy = true,
     event = "UIEnter",
-    ---@type snacks.Config
+    keys = {
+        {"<leader>gg",function()Snacks.lazygit()end,mode = "n",desc = "Lazygit",noremap = true, silent = true}
+    },
     opts = {
         -- your configuration comes here
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
-        picker = {
-            enabled = true,
-            win = {
-                input = {
-                    keys = {
-                        ["<a-c>"] = {
-                            "toggle_cwd",
-                            mode = { "n", "i" },
-                        },
-                    },
-                },
-            },
-            actions = {
-                toggle_cwd = function(p)
-                    local root = RootGet({ buf = p.input.filter.current_buf, normalize = true })
-                    local cwd = vim.fs.normalize((vim.uv or vim.loop).cwd() or ".")
-                    local current = p:cwd()
-                    p:set_cwd(current == root and cwd or root)
-                    p:find()
-                end,
-            },
-        },
+        picker = { enabled = true },
         dashboard = {
             enabled = true,
             preset = {
@@ -63,6 +44,7 @@ return {
         scroll = { enabled = true },
         statuscolumn = { enabled = true },
         words = { enabled = true },
-        bufdelete = { enabled = true }
+        bufdelete = { enabled = true },
+        lazygit = { enabled = true }
     },
 }

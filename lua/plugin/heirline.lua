@@ -745,7 +745,7 @@ return {
         -- The final touch!
         local TablineBufferBlock = {
             {
-                provider = "▋ ",
+                provider = "▍ ",
                 hl = function()
                     return {fg="#89b4fa"}
                 end,

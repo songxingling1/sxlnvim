@@ -5,18 +5,6 @@ return {
         opts = {
             dap = false,
             templates = { "builtin", "user.cppbuild", "user.cpprun", "user.cppbar" },
-            -- strategy = {
-            --     "toggleterm",
-            --     use_shell = false,
-            --     direction = nil,
-            --     highlights = nil,
-            --     auto_scroll = nil,
-            --     close_on_exit = true,
-            --     quit_on_exit = "always",
-            --     open_on_start = true,
-            --     hidden = true,
-            --     on_create = nil,
-            -- },
         },
         lazy = true,
         cmd = {

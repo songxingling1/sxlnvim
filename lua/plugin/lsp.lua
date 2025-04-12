@@ -153,6 +153,10 @@ return {
         opts = {
             warn_no_results = false,
             open_no_results = true,
+        },
+        keys = {
+            {"<leader>qf",":Trouble qflist<CR>",mode = "n",desc = "QuickFic",noremap = true, silent = true},
+            {"<leader>ig",":Trouble diagnostics<CR>",mode = "n",desc = "Diagnostics",noremap = true,silent = true}
         }
     }
 }

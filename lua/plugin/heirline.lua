@@ -204,12 +204,6 @@ return {
             FileFlags,
             { provider = '%<'} -- this means that the statusline is cut here when there's not enough space
         )
-        local FileEncoding = {
-            provider = function()
-                local enc = (vim.bo.fenc ~= '' and vim.bo.fenc) or vim.o.enc -- :h 'enc'
-                return enc ~= 'utf-8' and enc:upper()
-            end
-        }
         local FileFormat = {
             provider = function()
                 local fmt = vim.bo.fileformat
@@ -752,7 +746,7 @@ return {
         local TablineBufferBlock = {
             {
                 provider = "▋ ",
-                hl = function(self)
+                hl = function()
                     return {fg="#89b4fa"}
                 end,
                 condition = function(self)
@@ -761,7 +755,7 @@ return {
             },
             {
                 provider = "▎ ",
-                hl = function(self)
+                hl = function()
                     return {fg="#2a2b3c"}
                 end,
                 condition = function(self)

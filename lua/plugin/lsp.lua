@@ -7,6 +7,28 @@ return {
             local lspconfig = require('lspconfig')
             lspconfig['clangd'].setup({ capabilities = capabilities, 
                 on_attach = function(client, bufnr)require('nvim-navic').attach(client, bufnr)end})
+            lspconfig['lua_ls'].setup({
+                capabilities = capabilities,
+                on_attach = function(client, bufnr)
+                    require('nvim-navic').attach(client, bufnr)
+                end,
+                settings = {
+                    Lua = {
+                        runtime = {
+                            version = "LuaJIT",
+                        },
+                        diagnostics = {
+                            -- Get the language server to recognize the `vim` global
+                            globals = { "vim" },
+                        },
+                        workspace = {
+                            library = {
+                                vim.env.VIMRUNTIME
+                            }
+                        }
+                    }
+                }
+            })
         end,
         lazy = true,
         event = "BufRead"
@@ -17,9 +39,8 @@ return {
         config = function () 
             local configs = require("nvim-treesitter.configs")
             configs.setup({
-                ensure_installed = { "cpp","markdown" },
+                ensure_installed = { "cpp","markdown","lua" },
                 sync_install = true,
-                highlight = { enable = true },
                 indent = { enable = false },
                 highlight = {
                     enable = true

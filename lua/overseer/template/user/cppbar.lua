@@ -21,7 +21,8 @@ return {
                         args = { file, "-std=c++14", "-Wall", "-lm", "-g", "-o", outfile },
                     }
                 }
-            }, "default" }
+            }, "default" },
+            cwd = vim.fn.expand("%:h")
         }
     end,
     condition = {

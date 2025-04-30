@@ -12,6 +12,7 @@ return {
                 hidden = false,
                 quit_on_exit = "never"
             },
+            cwd = vim.fn.expand("%:h")
         }
     end,
     condition = {
